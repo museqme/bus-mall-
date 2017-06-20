@@ -1,0 +1,26 @@
+a {
+  text-decoration: none;
+}
+
+.sub-banners li {
+  display: inline-block;
+  float: left;
+  margin: 30px 30px 30px 0px;
+}
+
+
+button {
+  border: none;
+  padding: 10px 30px;
+  background: #000;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: 250ms all;
+  cursor: pointer;
+}
+
+button:hover {
+  background: green;
+}
