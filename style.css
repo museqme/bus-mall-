@@ -1,13 +1,67 @@
+h2 {
+   width: 100%;
+   text-align: center;
+   border-bottom: 1px solid #000;
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+}
+
+h2 span {
+    background:#fff;
+    /*padding:0 10px;*/
+}
+
 a {
   text-decoration: none;
 }
 
-.sub-banners li {
-  display: inline-block;
-  float: left;
-  margin: 30px 30px 30px 0px;
+p {
+  font-size: 20px;
+  font-style: bold;
+  font-family: georgia;
+  /*color: pink;*/
 }
 
+/*.instructions {
+  border: 2px double black;
+}*/
+
+.container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.sub-banners {
+  display: inline-block;
+  margin: 30px 30px 0px 0px;
+  background-color: #D3D3D3;
+
+}
+
+.sub-banners img{
+  float: left;
+  margin: 30px;
+  border: 2px double #841983;
+  box-shadow: 10px 10px 5px black;
+
+}
+
+
+
+body {
+  background-color: #F2EEE2;
+  background-image:url(http://wtop.com/wp-content/uploads/2017/04/traffic-727x485.jpg);
+  background-attachment: local;
+  background-size: contain;
+
+  /*background: linear-gradient(#FFF,aqua);*/
+
+}
+
+center {
+  background-position: center;
+  background-attachment: fixed;
+}
 
 button {
   border: none;
@@ -24,3 +78,10 @@ button {
 button:hover {
   background: green;
 }
+
+footer {
+  background: #111;
+  text-align: center;
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
