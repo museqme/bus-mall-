@@ -34,15 +34,15 @@ p {
 .sub-banners {
   display: inline-block;
   margin: 30px 30px 0px 0px;
-  background-color: #D3D3D3;
+  background-color: #FFF
 
 }
 
 .sub-banners img{
   float: left;
-  margin: 30px;
+  margin: 20px;
   border: 2px double #841983;
-  box-shadow: 10px 10px 5px black;
+  box-shadow: 5px 5px 5px black;
 
 }
 
@@ -50,7 +50,7 @@ p {
 
 body {
   background-color: #F2EEE2;
-  background-image:url(http://wtop.com/wp-content/uploads/2017/04/traffic-727x485.jpg);
+  /*background-image:url(http://wtop.com/wp-content/uploads/2017/04/traffic-727x485.jpg);*/
   background-attachment: local;
   background-size: contain;
 

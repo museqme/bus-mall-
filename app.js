@@ -35,10 +35,9 @@ function createCatalog () {
   new imgMaker('boots', 'img/boots.jpg');
   new imgMaker('breakfast', 'img/breakfast.jpg');
   new imgMaker('bubblegum', 'img/bubblegum.jpg');
-  new imgMaker('bus', 'img/bus.jpg');
   new imgMaker('chair', 'img/chair.jpg');
   new imgMaker('cthulhu', 'img/cthulhu.jpg');
-  new imgMaker('dog-duck', 'dog-duck.jpg');
+  new imgMaker('dog-duck', 'img/dog-duck.jpg');
   new imgMaker('dragon', 'img/dragon.jpg');
   new imgMaker('pen', 'img/pen.jpg');
   new imgMaker('pet-sweep', 'img/pet-sweep.jpg');
@@ -83,7 +82,6 @@ function randomPic() {
   imgArray[randomIndex2].timesAppeared += 1;
   imgArray[randomIndex3].timesAppeared += 1;
 }
-
 function handleClick(e) {
   e.preventDefault();
 
@@ -99,6 +97,9 @@ function handleClick(e) {
   else {
     alert('Pick a product!');
     return;
+
+    this.get = function () {
+
   }
   surveyLength += 1;
   randomPic();
