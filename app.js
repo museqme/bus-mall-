@@ -6,49 +6,50 @@ var randomIndex3;
 var surveyLength = 0;
 
 var imgArray = [];
-var imgNameArray = [];
-var pathArray = [];
-var arrayOfThree = [];
+// var imgNameArray = [];
+// var pathArray = [];
+// var arrayOfThree = [];
 
-var createButtomEl = document.createElement('button');
+// var createButtomEl = document.createElement('button');
 var subBanners = document.getElementById('subBanners');
 var img1 = document.getElementById('img1');
 var img2 = document.getElementById('img2');
 var img3 = document.getElementById('img3');
 
-function imgMaker(name,path) {
+function ImgMaker(name, path) {
   this.path = path;
   this.name = name;
   this.timesAppeared = 0;
   this.timesClicked = 0;
   imgArray.push(this);
-  imgNameArray.push(this.name);
-};
-
-for( var i = 0; i < imgArray.length; i++) {
-  imageNameArray.push(imageArray[i].name);
+  // imgNameArray.push(this.name);
 }
-function createCatalog () {
-  new imgMaker('bag', 'img/bag.jpg');
-  new imgMaker('banana', 'img/banana.jpg');
-  new imgMaker('bathroom', 'img/bathroom.jpg');
-  new imgMaker('boots', 'img/boots.jpg');
-  new imgMaker('breakfast', 'img/breakfast.jpg');
-  new imgMaker('bubblegum', 'img/bubblegum.jpg');
-  new imgMaker('chair', 'img/chair.jpg');
-  new imgMaker('cthulhu', 'img/cthulhu.jpg');
-  new imgMaker('dog-duck', 'img/dog-duck.jpg');
-  new imgMaker('dragon', 'img/dragon.jpg');
-  new imgMaker('pen', 'img/pen.jpg');
-  new imgMaker('pet-sweep', 'img/pet-sweep.jpg');
-  new imgMaker('scissors', 'img/scissors.jpg');
-  new imgMaker('shark', 'img/shark.jpg');
-  new imgMaker('sweep', 'img/sweep.png');
-  new imgMaker('tauntaun', 'img/tauntaun.jpg');
-  new imgMaker('unicorn', 'img/unicorn.jpg');
-  new imgMaker('usb', 'img/usb.gif');
-  new imgMaker('water-can', 'img/water-can.jpg');
-  new imgMaker('wine-glass', 'img/wine-glass.jpg');
+
+// for (var i = 0; i < imgArray.length; i++) {
+//   imageNameArray.push(imageArray[i].name);
+// }
+
+function createCatalog() {
+  new ImgMaker('bag', 'img/bag.jpg');
+  new ImgMaker('banana', 'img/banana.jpg');
+  new ImgMaker('bathroom', 'img/bathroom.jpg');
+  new ImgMaker('boots', 'img/boots.jpg');
+  new ImgMaker('breakfast', 'img/breakfast.jpg');
+  new ImgMaker('bubblegum', 'img/bubblegum.jpg');
+  new ImgMaker('chair', 'img/chair.jpg');
+  new ImgMaker('cthulhu', 'img/cthulhu.jpg');
+  new ImgMaker('dog-duck', 'img/dog-duck.jpg');
+  new ImgMaker('dragon', 'img/dragon.jpg');
+  new ImgMaker('pen', 'img/pen.jpg');
+  new ImgMaker('pet-sweep', 'img/pet-sweep.jpg');
+  new ImgMaker('scissors', 'img/scissors.jpg');
+  new ImgMaker('shark', 'img/shark.jpg');
+  new ImgMaker('sweep', 'img/sweep.png');
+  new ImgMaker('tauntaun', 'img/tauntaun.jpg');
+  new ImgMaker('unicorn', 'img/unicorn.jpg');
+  new ImgMaker('usb', 'img/usb.gif');
+  new ImgMaker('water-can', 'img/water-can.jpg');
+  new ImgMaker('wine-glass', 'img/wine-glass.jpg');
 }
 
 function randomIndex() {
@@ -56,15 +57,17 @@ function randomIndex() {
   randomIndex2 = Math.floor(Math.random() * imgArray.length);
   randomIndex3 = Math.floor(Math.random() * imgArray.length);
 }
+
 function surveyEnd() {
-  createButtonEl.textContent = 'View results';
-  subBanners.appendChild(createButtonEl);
+  // createButtonEl.textContent = 'View results';
+  // subBanners.appendChild(createButtonEl);
   subBanners.removeEventListener('click', handleClick);
 }
 
 function randomPic() {
-  if (surveyLength > 24 ) {
+  if (surveyLength > 24) {
     surveyEnd();
+    sPush();
   }
   var lastIndex = [];
   lastIndex.push(randomIndex1);
@@ -77,33 +80,50 @@ function randomPic() {
   img1.src = imgArray[randomIndex1].path;
   img2.src = imgArray[randomIndex2].path;
   img3.src = imgArray[randomIndex3].path;
-
   imgArray[randomIndex1].timesAppeared += 1;
   imgArray[randomIndex2].timesAppeared += 1;
   imgArray[randomIndex3].timesAppeared += 1;
 }
+
+function pull() {
+  var stringArray = localStorage.getItem('data');
+  imgArray = JSON.parse(stringArray);
+}
+
 function handleClick(e) {
-  e.preventDefault();
+  // e.preventDefault();
 
   if (e.target.id === 'img1') {
     imgArray[randomIndex1].timesClicked += 1;
-  }
-  else if (e.target.id === 'img2') {
+    sPush();
+  } else if (e.target.id === 'img2') {
     imgArray[randomIndex2].timesClicked += 1;
-  }
-  else if (e.target.id === 'img3') {
+    sPush();
+  } else if (e.target.id === 'img3') {
     imgArray[randomIndex3].timesClicked += 1;
-  }
-  else {
+    sPush();
+  } else {
     alert('Pick a product!');
-    return;
-
-    this.get = function () {
 
   }
   surveyLength += 1;
   randomPic();
 }
+
+function sPush() {
+  localStorage.setItem('data', JSON.stringify(imgArray));
+}
+function startUp () {
+  if (localStorage.length === 0) {
+    createCatalog();
+
+  } else {
+    pull();
+  }
+}
+
+startUp();
+sPush();
 
 createCatalog();
 randomIndex();
